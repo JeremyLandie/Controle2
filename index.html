@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><Document></title>
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css"/>
+    <link href="style.css" rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <div id="gameContainer" onload="reset()">
+        <div id="colorRectangle" class="colorRect"></div>
+        <ion-grid class="ion-text-center">
+            <ion-row justify-content-center > <!--style="height: 150px;"-->
+                <ion-col class="buttonContainer">
+                    <button class="button" onclick="reset()">
+                        <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' width="50" height="50" color=red><title>Add Circle</title><path d='M448 256c0-106-86-192-192-192S64 150 64 256s86 192 192 192 192-86 192-192z' fill='none' stroke='currentColor' stroke-miterlimit='10' stroke-width='32'/><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M256 176v160M336 256H176'/></svg>
+                        NEW GAME
+                    </button>
+                </ion-col>
+            </ion-row>
+
+            <ion-row justify-content-around align-self-center > <!--style="height: 300px;"-->
+                <ion-col>
+                    <div class="playerSquare">
+                        <div>Player 1 &nbsp;</div>
+                        <div id=POneCircle>
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="15" height="15" color=red>
+                                <circle cx="50" cy="50" r="50" stroke="currentcolor" fill="currentcolor"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <div id="POneScore" class="score ion-margin">
+                        0
+                    </div>
+                </ion-col>
+                <ion-col size="3" size-sm="auto">
+                    <div id="resultDice" class="diceResult">
+                        <img src="images/face1.svg" alt="Dice result 1" id="diceResult1" hidden="true" class="diceSvg"/>
+                        <img src="images/face2.svg" alt="Dice result 2" id="diceResult2" hidden="true" class="diceSvg"/>
+                        <img src="images/face3.svg" alt="Dice result 3" id="diceResult3" hidden="true" class="diceSvg"/>
+                        <img src="images/face4.svg" alt="Dice result 4" id="diceResult4" hidden="true" class="diceSvg"/>
+                        <img src="images/face5.svg" alt="Dice result 5" id="diceResult5" hidden="true" class="diceSvg"/>
+                        <img src="images/face6.svg" alt="Dice result 6" id="diceResult6" hidden="true" class="diceSvg"/>
+                        <img src="images/dice3d.svg" alt="Dice result Icon" id="diceIcon" class="diceSvg"/>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div class="playerSquare">
+                        <div id=PTwoCircle>
+                            <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" width="15" height="15" color=red>
+                                <circle cx="50" cy="50" r="50" stroke="currentcolor" fill="currentcolor"/>
+                            </svg>
+                        </div>
+                        <div>
+                            &nbsp; Player 2
+                        </div>
+                    </div>
+                    <div id="PTwoScore" class="score ion-margin">
+                        0
+                    </div>
+                </ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col>
+                    <div class=PScore>
+                        Current
+                        <div id=POneCurrentScore>
+                            35
+                        </div>
+                    </div>
+                </ion-col>
+                <ion-col size="3" size-sm="auto" class="buttonContainer">
+                    <button class=button onclick="rollDice()")>
+                        <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' width="50" height="50" color=red><title>Sync</title><path d='M434.67 285.59v-29.8c0-98.73-80.24-178.79-179.2-178.79a179 179 0 00-140.14 67.36m-38.53 82v29.8C76.8 355 157 435 256 435a180.45 180.45 0 00140-66.92' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'/><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M32 256l44-44 46 44M480 256l-44 44-46-44'/></svg>
+                        ROLL DICE
+                    </button>
+                    <button class=button onclick="hold()">
+                        <svg xmlns='http://www.w3.org/2000/svg' class='ionicon' viewBox='0 0 512 512' width="50" height="50" color=red><title>Download</title><path d='M336 176h40a40 40 0 0140 40v208a40 40 0 01-40 40H136a40 40 0 01-40-40V216a40 40 0 0140-40h40' fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32'/><path fill='none' stroke='currentColor' stroke-linecap='round' stroke-linejoin='round' stroke-width='32' d='M176 272l80 80 80-80M256 48v288'/></svg>
+                        HOLD
+                    </button>
+                </ion-col>
+                <ion-col>
+                    <div class=PScore>
+                        Current
+                        <div id=PTwoCurrentScore>
+                            42
+                        </div>
+                    </div>
+                </ion-col>
+            </ion-row>
+            
+        </ion-grid>
+    </div>
+    
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>

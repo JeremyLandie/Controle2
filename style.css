@@ -1,0 +1,60 @@
+.icon {
+    color:crimson;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    font-style: "font-family: 'Lato', cursive;"
+}
+
+.button{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent!important;
+}
+
+.playerSquare{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.score{
+    font-size: 100px;
+}
+
+.diceResult{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diceSvg{
+    height: 120px;
+    width: 120px;
+}
+
+#gameContainer{
+    margin: 5%;
+    width: auto;
+    display: block;
+    padding: 5px;
+    position: relative;
+}
+
+.colorRect{
+    background-color: #D3D3D3;
+    left: 0px;
+    right:auto;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+
+    transition-property: left;
+    transition-duration: 1s;
+    transition-timing-function: ease-in-out;
+}
